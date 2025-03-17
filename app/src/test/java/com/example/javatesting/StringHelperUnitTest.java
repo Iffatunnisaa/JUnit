@@ -14,20 +14,27 @@ public class StringHelperUnitTest {
      * @param input String yang akan dikonversi ke huruf besar.
      * @return String hasil konversi dalam huruf besar.
      */
-    public String convertToUpperCase(String input) {
-        return input.toUpperCase();
+    public static String reverseString(String input) {
+        return new StringBuilder(input).reverse().toString();
     }
 
-    /**
-     * Menguji apakah metode {@link #convertToUpperCase(String)} dapat mengubah teks menjadi huruf besar.
-     *
-     * **Skenario Pengujian:**
-     * - Jika input adalah "hello", maka output harus "HELLO".
-     * - Jika input adalah "android", maka output harus "ANDROID".
-     */
-    @Test
-    public void testConvertToUpperCase() {
-        assertEquals("HELLO", convertToUpperCase("hello"));
-        assertEquals("ANDROID", convertToUpperCase("android"));
+    public static boolean isPalindrome(String input) {
+        String reversed = reverseString(input);
+        return input.equalsIgnoreCase(reversed);
+    }
+
+    public static int countVowels(String input) {
+        int count = 0;
+        String vowels = "aeiouAEIOU";
+        for (char ch : input.toCharArray()) {
+            if (vowels.indexOf(ch) != -1) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static String removeWhitespace(String input) {
+        return input.replaceAll("\\s+", "");
     }
 }
