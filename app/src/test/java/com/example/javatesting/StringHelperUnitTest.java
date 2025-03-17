@@ -8,6 +8,7 @@ import org.junit.Test;
  * Kelas ini berisi unit test untuk menguji metode konversi string ke huruf besar.
  */
 public class StringHelperUnitTest {
+    @Test
     public void testConvertToUpperCase() {
         assertEquals("HELLO", StringHelper.convertToUpperCase("hello"));
         assertEquals("ANDROID", StringHelper.convertToUpperCase("android"));
