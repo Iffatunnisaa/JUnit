@@ -14,26 +14,62 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Masukkan angka pertama"
-        android:inputType="number" />
+        android:inputType="number"
+        android:marginBottom="8dp" />
 
     <EditText
         android:id="@+id/editTextNum2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Masukkan angka kedua"
-        android:inputType="number" />
+        android:inputType="number"
+        android:marginBottom="16dp" />
 
-    <Button
-        android:id="@+id/buttonAdd"
+    <!-- LinearLayout untuk mengatur tombol dalam satu baris -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tambah" />
+        android:orientation="horizontal"
+        android:gravity="center">
 
-    <Button
-        android:id="@+id/buttonSubtract"
+        <Button
+            android:id="@+id/buttonAdd"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Tambah"
+            android:marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/buttonSubtract"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Kurangi" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kurangi" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:marginTop="8dp">
+
+        <Button
+            android:id="@+id/buttonMultiply"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Kali"
+            android:marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/buttonDivide"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Bagi" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textViewResult"
@@ -42,5 +78,6 @@
         android:textSize="18sp"
         android:text="Hasil akan muncul di sini"
         android:gravity="center"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:marginTop="16dp"/>
 </LinearLayout>

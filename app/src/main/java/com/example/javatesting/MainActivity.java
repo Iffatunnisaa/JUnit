@@ -33,11 +33,15 @@ public class MainActivity extends AppCompatActivity {
         textViewResult = findViewById(R.id.textViewResult);
         Button buttonAdd = findViewById(R.id.buttonAdd);
         Button buttonSubtract = findViewById(R.id.buttonSubtract);
+        Button buttonMultiply = findViewById(R.id.buttonMultiply);
+        Button buttonDivide = findViewById(R.id.buttonDivide);
 
         calculator = new Calculator();
 
         buttonAdd.setOnClickListener(v -> calculateResult("add"));
         buttonSubtract.setOnClickListener(v -> calculateResult("subtract"));
+        buttonMultiply.setOnClickListener(v -> calculateResult("multiply"));
+        buttonDivide.setOnClickListener(v -> calculateResult("divide"));
     }
 
     private void calculateResult(String operation) {
@@ -51,14 +55,30 @@ public class MainActivity extends AppCompatActivity {
 
         int num1 = Integer.parseInt(num1Str);
         int num2 = Integer.parseInt(num2Str);
-        int result;
+        int result = 0;
+        String resultText;
 
-        if ("add".equals(operation)) {
-            result = calculator.add(num1, num2);
-        } else {
-            result = calculator.subtract(num1, num2);
+        try {
+            switch (operation) {
+                case "add":
+                    result = calculator.add(num1, num2);
+                    break;
+                case "subtract":
+                    result = calculator.subtract(num1, num2);
+                    break;
+                case "multiply":
+                    result = calculator.multiply(num1, num2);
+                    break;
+                case "divide":
+                    result = calculator.divide(num1, num2);
+                    break;
+            }
+            resultText = "Hasil: " + result;
+        } catch (IllegalArgumentException e) {
+            resultText = "Error: " + e.getMessage();
         }
 
-        textViewResult.setText("Hasil: " + result);
+        // Gunakan StringHelper untuk mengubah hasil menjadi huruf besar
+        textViewResult.setText(StringHelper.convertToUpperCase(resultText));
     }
 }
